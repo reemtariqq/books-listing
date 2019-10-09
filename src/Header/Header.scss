@@ -1,0 +1,13 @@
+// @import "../Style/Varaibles"
+
+$primary-color: #333333;
+$editMode-color:#660200;
+.header {
+background-color: $primary-color;
+ height: 40px;
+ span{
+     color: white;
+     font-size: larger;
+     
+ }
+}
