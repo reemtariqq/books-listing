@@ -1,5 +1,5 @@
-import React from 'react' 
-import './App.scss' 
+import React from 'react'
+import './App.scss'
 import Header from './Header/Header'
 import BookList from './Book'
 import CategoryList from './Category'
@@ -7,7 +7,6 @@ import AuthorsList from './Author'
 import AppRoutes from './Routes'
 
 function App() {
-  console.log(AppRoutes)
   return (
     <React.Fragment>
       <header><Header /></header>

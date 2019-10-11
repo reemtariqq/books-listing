@@ -15,6 +15,9 @@ function AppRoutes() {
                         <Route exact path="/book/new" component={AddEditBook} />
                         <Route path="/category/new" component={AddEditCategory} />
                         <Route path="/author/new" component={AddEditAuthor} />
+                        <Route exact path="/book/:id" component={AddEditBook} />
+                        <Route path="/category/:id" component={AddEditCategory} />
+                        <Route path="/author/:id" component={AddEditAuthor} />
                         {/* <Route component={Notfound} /> */}
                     </Switch>
                 </div>

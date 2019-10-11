@@ -1,8 +1,9 @@
 import ActionTypes from './actionsTypes'
 
-export function fetchListBook() {
+export function fetchListBook(query) {
     return {
         type: ActionTypes.FETCH_LIST_BOOK,
+        query
     }
 }
 

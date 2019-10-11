@@ -20,8 +20,7 @@ export function fetchListBooks(action$) {
   return action$
     .ofType(actionTypes.FETCH_LIST_BOOK)
     .switchMap((action) => {
-      return apis.fetchList('books')
-        // .do((r) => console.log('::epic:fetchUserInfo:action:', r)) // eslint-disable-line
+      return apis.fetchList('books', action.query)
         // handle successes
         .map((res) => actions.fetchListSuccessBook(res))
       // .catch((err) => Rx
@@ -38,7 +37,6 @@ export function fetchListAuthors(action$) {
     .ofType(actionTypes.FETCH_LIST_AUTHORS)
     .switchMap((action) => {
       return apis.fetchList('authors')
-        .do((r) => console.log('::epic:fetch authors:action:', r)) // eslint-disable-line
         // handle successes
         .map((res) => actions.fetchListSuccessAuthors(res))
       // .catch((err) => Rx
@@ -55,7 +53,6 @@ export function fetchListCategories(action$) {
     .ofType(actionTypes.FETCH_LIST_CATEGORY)
     .switchMap((action) => {
       return apis.fetchList('categories')
-        .do((r) => console.log('::epic:fetch authors:action:', r)) // eslint-disable-line
         // handle successes
         .map((res) => actions.fetchListSuccessCategories(res))
       // .catch((err) => Rx

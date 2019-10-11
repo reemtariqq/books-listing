@@ -1,0 +1,13 @@
+.pager{
+float: right;
+border: solid 1px grey;
+border-radius: 5px;
+&_item{
+    border-top: none;
+    width:30px;
+    height:30px;
+    border-bottom: none;
+    background: none;
+    cursor: pointer;
+}
+}

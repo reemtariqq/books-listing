@@ -11,12 +11,18 @@ export default {
 
 
 
-function fetchList(listName) {
+function fetchList(listName, query) {
+  debugger
+  const fetchQuery = query ? {
+    '_page': query.page,
+    '_limit': query.limit,
+  } : {}
 
   return from(
     request
       .get(`http://localhost:4000/${listName}`)
       .set("Accept", "application/json")
+      .query(fetchQuery)
   )
 }
 
