@@ -1,5 +1,5 @@
-import React from 'react';
-import './Header.scss';
+import React from 'react' 
+import './Header.scss' 
 import { Link } from 'react-router-dom'
 
 function Header() {
@@ -12,7 +12,7 @@ function Header() {
                 <button>   <a href="/author/new">New Author</a> </button>
             </div >
         </div >
-    );
+    ) 
 }
 
-export default Header;
+export default Header 

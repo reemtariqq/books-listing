@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react' 
 import './List.scss'
 
 function List({ data, columns, title }) {
@@ -14,7 +14,7 @@ function List({ data, columns, title }) {
             </ul>
 
         </div >
-    );
+    )
 }
 
-export default List;
+export default List 

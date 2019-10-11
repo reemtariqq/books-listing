@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react' 
 import './icon.scss'
 
 function Icon() {
@@ -11,4 +11,4 @@ function Icon() {
     )
 }
 
-export default Icon;
+export default Icon 

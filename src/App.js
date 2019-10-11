@@ -1,5 +1,5 @@
-import React from 'react';
-import './App.scss';
+import React from 'react' 
+import './App.scss' 
 import Header from './Header/Header'
 import BookList from './Book'
 import CategoryList from './Category'
@@ -18,7 +18,7 @@ function App() {
             <AuthorsList />
           </div>
         </nav>
-        <article><BookList /></article>
+        <article><AppRoutes /></article>
 
       </div>
 
@@ -26,4 +26,4 @@ function App() {
   )
 }
 
-export default App;
+export default App 

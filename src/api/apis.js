@@ -1,5 +1,5 @@
-import * as Rx from 'rxjs';
-import { from } from 'rxjs';
+import * as Rx from 'rxjs'
+import { from } from 'rxjs'
 import request from 'superagent'
 
 

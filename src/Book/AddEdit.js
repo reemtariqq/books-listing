@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react' 
 
 
 function AddEditBook() {
@@ -6,7 +6,7 @@ function AddEditBook() {
         <div>
             edit me Book
         </div>
-    );
+    ) 
 }
 
-export default AddEditBook;
+export default AddEditBook 

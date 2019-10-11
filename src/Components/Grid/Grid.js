@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react' 
 import Icon from '../Icon'
 import './Grid.scss'
 
@@ -7,12 +7,18 @@ function List({ data, columns, title }) {
         <div>
             {
                 data.map(item =>
-                    <Icon />
+                    <div>
+                        <Icon/>
+                        <span> {item.title}</span>
+                        <br />
+                        <span> {item.description}</span>
+                    </div>
+
                 )
             }
 
         </div >
-    );
+    ) 
 }
 
-export default List;
+export default List 

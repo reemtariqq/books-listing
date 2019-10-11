@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react' 
 
 
 function AddEditCategory() {
@@ -6,7 +6,7 @@ function AddEditCategory() {
         <div>
             edit me category
         </div>
-    );
+    ) 
 }
 
-export default AddEditCategory;
+export default AddEditCategory 

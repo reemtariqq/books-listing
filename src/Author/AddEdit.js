@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react' 
 
 
 function AddEditAuthor() {
@@ -6,7 +6,7 @@ function AddEditAuthor() {
         <div>
             edit me Author
         </div>
-    );
+    ) 
 }
 
-export default AddEditAuthor;
+export default AddEditAuthor 

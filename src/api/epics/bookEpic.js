@@ -1,11 +1,9 @@
-// import Rx from 'rxjs' // eslint-disable-line
-
-import 'rxjs/add/operator/switchMap';
-import 'rxjs/add/operator/do';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/takeUntil';
-import 'rxjs/add/operator/mergeMap';
-import 'rxjs/add/operator/take';
+import 'rxjs/add/operator/switchMap'
+import 'rxjs/add/operator/do'
+import 'rxjs/add/operator/map'
+import 'rxjs/add/operator/takeUntil'
+import 'rxjs/add/operator/mergeMap'
+import 'rxjs/add/operator/take'
 import apis from '../apis' // eslint-disable-line
 import actionTypes from '../../actions/actionsTypes'
 import * as actions from '../../actions/actions'

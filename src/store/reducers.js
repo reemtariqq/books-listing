@@ -13,7 +13,7 @@ function genericReducer(state = {}, action) {
     case actionTypes.FETCH_LIST_SUCCESS_BOOK:
     case actionTypes.FETCH_LIST_SUCCESS_CATEGORY:
     case actionTypes.FETCH_LIST_SUCCESS_AUTHOR:
-      debugger
+
       return fetchListSuccess(state, action)
     default:
       return state
@@ -21,7 +21,7 @@ function genericReducer(state = {}, action) {
 }
 
 function fetchListSuccess(state, action) {
-  debugger
+
   return {
     ...state,
     list: action.list
@@ -30,9 +30,9 @@ function fetchListSuccess(state, action) {
 
 function createFilteredReducer(reducerFunction, reducerPredicate) {
   return (state, action) => {
-    const isInitializationCall = state === undefined;
-    const shouldRunWrappedReducer = reducerPredicate(action) || isInitializationCall;
-    return shouldRunWrappedReducer ? reducerFunction(state, action) : state;
+    const isInitializationCall = state === undefined 
+    const shouldRunWrappedReducer = reducerPredicate(action) || isInitializationCall 
+    return shouldRunWrappedReducer ? reducerFunction(state, action) : state 
   }
 }
 
