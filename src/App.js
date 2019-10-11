@@ -1,14 +1,29 @@
 import React from 'react';
-import './App.css';
-import BookList from './BookList'
+import './App.scss';
 import Header from './Header/Header'
+import BookList from './Book'
+import CategoryList from './Category'
+import AuthorsList from './Author'
+import AppRoutes from './Routes'
 
 function App() {
+  console.log(AppRoutes)
   return (
     <React.Fragment>
-      <Header />
+      <header><Header /></header>
+      <div id="main">
+        <nav>
+          <div>
+            <CategoryList />
+            <AuthorsList />
+          </div>
+        </nav>
+        <article><BookList /></article>
+
+      </div>
+
     </React.Fragment>
-  );
+  )
 }
 
 export default App;
