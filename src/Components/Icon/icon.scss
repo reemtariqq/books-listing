@@ -1,0 +1,22 @@
+
+.iconcontainer{
+     width: 100px;
+    height: 100px;
+    border: solid 1px black;
+}
+.line1{
+    width: 139px;
+    height: 100x;
+    border-bottom: 1px solid black;
+    position: absolute;
+    transform: rotate(45deg) translateX(21px) translateY(48px);
+    }
+    .line2{
+        width: 139px;
+        height: 100x;
+        border-bottom: 1px solid black;
+        position: absolute;
+        transform: rotate(-45deg) translateX(-48px) translateY(21px);
+        }
+    
+    

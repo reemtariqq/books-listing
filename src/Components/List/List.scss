@@ -1,0 +1,22 @@
+.container{
+border: #3D8ACD 1px solid;
+-webkit-border-top-left-radius: 5px;
+-webkit-border-top-right-radius: 5px;
+-moz-border-radius-topleft: 5px;
+-moz-border-radius-topright: 5px;
+border-top-left-radius: 5px;
+border-top-right-radius: 5px;
+// width: 25%;
+// height: 25%;
+overflow: scroll;
+max-height: 350px;
+&_title{
+    background: #3D8ACD;
+    border-radius: inherit;
+    height: 33px;
+    color:white;
+}
+span{
+    margin: 20px 10px;
+}
+}

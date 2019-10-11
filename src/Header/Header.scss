@@ -4,10 +4,24 @@ $primary-color: #333333;
 $editMode-color:#660200;
 .header {
 background-color: $primary-color;
- height: 40px;
+ height: 40px;   
  span{
      color: white;
      font-size: larger;
      
+ }
+ button{
+    margin-right: 7px;
+    height: 30px;
+    margin-top: 4px;
+    border-radius: 4px;
+    background: #3D8ACD;
+    border-color: #3D8ACD;
+ }
+ a{
+    text-align: center;
+    text-decoration: none;
+    color:white;
+    font-size:larger;
  }
 }
