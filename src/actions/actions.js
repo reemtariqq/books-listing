@@ -47,7 +47,7 @@ export function fetchListErrorCategories(err) {
 export function fetchListAuthors() {
 
     return {
-        type: ActionTypes.FETCH_LIST_AUTHORS,
+        type: ActionTypes.FETCH_LIST_AUTHOR,
     }
 }
 
@@ -65,3 +65,26 @@ export function fetchListErrorAuthors(err) {
         err,
     }
 }
+
+export function setItemDetailsBook(details) {
+    return {
+        type: ActionTypes.SET_ITEM_DETAILS_BOOK,
+        details,
+    }
+}
+
+export function setItemDetailsAuthor(details) {
+    return {
+        type: ActionTypes.SET_ITEM_DETAILS_AUTHOR,
+        details,
+    }
+}
+
+export function setItemDetailsCategory(details) {
+    return {
+        type: ActionTypes.SET_ITEM_DETAILS_CATEGORY,
+        details,
+    }
+}
+
+

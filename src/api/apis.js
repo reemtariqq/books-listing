@@ -1,4 +1,3 @@
-import * as Rx from 'rxjs'
 import { from } from 'rxjs'
 import request from 'superagent'
 
@@ -12,7 +11,6 @@ export default {
 
 
 function fetchList(listName, query) {
-  debugger
   const fetchQuery = query ? {
     '_page': query.page,
     '_limit': query.limit,

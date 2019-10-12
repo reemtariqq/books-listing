@@ -34,7 +34,7 @@ export function fetchListBooks(action$) {
 export function fetchListAuthors(action$) {
 
   return action$
-    .ofType(actionTypes.FETCH_LIST_AUTHORS)
+    .ofType(actionTypes.FETCH_LIST_AUTHOR)
     .switchMap((action) => {
       return apis.fetchList('authors')
         // handle successes

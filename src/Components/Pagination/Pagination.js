@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './Pagination.scss'
 function Pagination({ itemsNo, pageSize, getPage, activePage }) {
-    useEffect(() => getPages(), [])
+
     const [pages, setPages] = useState(0)
     const getPages = () => {
         const pagesNo = itemsNo / pageSize
@@ -11,12 +11,13 @@ function Pagination({ itemsNo, pageSize, getPage, activePage }) {
         }
         setPages(list)
     }
+    useEffect(() => { getPages() }, [])
 
     return (
         <div className="pager">
             <button className="pager_item" onClick={() => getPage(1)}> {"<<"}</button>
             {pages &&
-                pages.map(page => <button className="pager_item" onClick={() => getPage(page)}>{page}</button>)
+                pages.map(page => <button key={page} className="pager_item" onClick={() => getPage(page)}>{page}</button>)
             }
             <button className="pager_item" onClick={() => getPage(Math.max(...pages))}> {">>"}</button>
 

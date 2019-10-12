@@ -1,20 +1,20 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Icon from '../Icon'
 import Pagination from '../Pagination';
 import './Grid.scss'
 
-function Grid({ data, columns, title, getPage }) {
+function Grid({ data, getPage, setItemDetails }) {
 
-    // const getPage = page => {
-
-    // }
+    const getItem = id => {
+        setItemDetails(data.filter(item => item.id === id)[0])
+    }
     return (
         <div>
             {
                 data.map(item =>
-                    <div>
+                    <div key={item.id}>
                         <Icon />
-                        <span> {item.title}</span>
+                        <button onClick={() => { getItem(item.id) }}> {item.title}</button>
                         <br />
                         <span> {item.description}</span>
                     </div>

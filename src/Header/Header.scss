@@ -7,21 +7,21 @@ background-color: $primary-color;
  height: 40px;   
  span{
      color: white;
-     font-size: larger;
+    //  font-size: larger;
      
  }
- button{
+ .link{
     margin-right: 7px;
     height: 30px;
+    width: 130px;
     margin-top: 4px;
     border-radius: 4px;
     background: #3D8ACD;
     border-color: #3D8ACD;
- }
- a{
-    text-align: center;
+    display: inline-block;
     text-decoration: none;
     color:white;
-    font-size:larger;
+    text-align: center;
+    line-height: 28px;
  }
 }

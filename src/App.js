@@ -1,7 +1,6 @@
 import React from 'react'
 import './App.scss'
 import Header from './Header/Header'
-import BookList from './Book'
 import CategoryList from './Category'
 import AuthorsList from './Author'
 import AppRoutes from './Routes'

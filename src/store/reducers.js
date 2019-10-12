@@ -1,19 +1,25 @@
 import { combineReducers } from 'redux'
 import actionTypes from '../actions/actionsTypes'
 
-
 function genericReducer(state = {}, action) {
 
   switch (action.type) {
     case actionTypes.FETCH_LIST_BOOK:
-    case actionTypes.FETCH_LIST_AUTHORS:
+    case actionTypes.FETCH_LIST_AUTHOR:
     case actionTypes.FETCH_LIST_CATEGORY:
       return state
+
     case actionTypes.FETCH_LIST_SUCCESS_BOOK:
     case actionTypes.FETCH_LIST_SUCCESS_CATEGORY:
     case actionTypes.FETCH_LIST_SUCCESS_AUTHOR:
 
       return fetchListSuccess(state, action)
+
+    case actionTypes.SET_ITEM_DETAILS_AUTHOR:
+    case actionTypes.SET_ITEM_DETAILS_BOOK:
+    case actionTypes.SET_ITEM_DETAILS_CATEGORY:
+      return setItemDetails(state, action)
+
     default:
       return state
   }
@@ -27,6 +33,14 @@ function fetchListSuccess(state, action) {
   }
 }
 
+function setItemDetails(state, action) {
+  debugger
+  return {
+    ...state,
+    details: action.details
+  }
+}
+
 function createFilteredReducer(reducerFunction, reducerPredicate) {
   return (state, action) => {
     const isInitializationCall = state === undefined
@@ -34,6 +48,8 @@ function createFilteredReducer(reducerFunction, reducerPredicate) {
     return shouldRunWrappedReducer ? reducerFunction(state, action) : state
   }
 }
+
+
 
 const rootReducer = combineReducers({
   // check for suffixed strings

@@ -1,11 +1,11 @@
-import React from 'react' 
+import React from 'react'
 import './icon.scss'
 
 function Icon() {
     return (
         <div className="iconcontainer">
-            <div class="line1"></div>
-            <div class="line2"></div>
+            <div className="line1"></div>
+            <div className="line2"></div>
         </div>
 
     )
