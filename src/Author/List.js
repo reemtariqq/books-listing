@@ -6,15 +6,15 @@ import List from '../Components/List'
 function CategoryList() {
     const dispatch = useDispatch()
     const authorsList = useSelector(store => store.Author.list)
-    const setItemDetails = (itemDetails) => {
-        dispatch(action.setItemDetailsAuthor(itemDetails))
+    const setItemId = (id) => {
+        dispatch(action.fetchBook(id))
     }
     useEffect(() => {
         if (!authorsList) dispatch(action.fetchListAuthors())
     }, [authorsList])
     return (
         <div>
-            {authorsList && <List title="Authors" listName="author" data={authorsList} columns="name" setItemDetails={setItemDetails} />}
+            {authorsList && <List title="Authors" listName="author" data={authorsList} columns="name" setItemId={setItemId} />}
         </div>
     )
 }

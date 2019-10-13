@@ -4,21 +4,21 @@ import { withRouter, useHistory } from "react-router-dom"
 import * as actions from '../actions/actions'
 
 import List from '../Components/List'
+
 function CategoryList() {
     const dispatch = useDispatch()
     const history = useHistory()
     const catList = useSelector(store => store.Category.list)
-    const setItemDetails = (itemDetails) => {
-        dispatch(actions.setItemDetailsCategory(itemDetails))
-        history.push('category/new')
-        // access navigation object now here !
+    const setItemId = (id) => {
+        dispatch(actions.fetchCategory({ id }))
+        history.push(`category/${id}`)
     }
     useEffect(() => {
         if (!catList) dispatch(actions.fetchListCategories())
     }, [actions.fetchListCategories])
     return (
         <div>
-            {catList && <List title="Categories" listName="category" data={catList} columns="name" setItemDetails={setItemDetails} />}
+            {catList && <List title="Categories" listName="category" data={catList} columns="name" setItemId={setItemId} />}
         </div>
     )
 }

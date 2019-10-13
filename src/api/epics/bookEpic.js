@@ -11,7 +11,14 @@ import * as actions from '../../actions/actions'
 export default [
   fetchListBooks,
   fetchListAuthors,
-  fetchListCategories
+  fetchListCategories,
+
+  fetchBook,
+  fetchCategory,
+  fetchAuthor,
+
+  addEditBook
+
 ]
 
 
@@ -62,3 +69,74 @@ export function fetchListCategories(action$) {
       // )
     })
 }
+
+
+export function fetchBook(action$) {
+
+  return action$
+    .ofType(actionTypes.FETCH_BOOK)
+    .switchMap((action) => {
+      return apis.fetchList('books', action.query)
+        // handle successes
+        .map((res) => actions.fetchListSuccessBook(res.body))
+      // .catch((err) => Rx
+      //   .Observable
+      //   .of(appActions.throwError(err)
+      //   )
+      // )
+    })
+}
+
+export function fetchCategory(action$) {
+
+  return action$
+    .ofType(actionTypes.FETCH_CATEGORY)
+    .switchMap((action) => {
+      return apis.fetchList('categories', action.query)
+        // handle successes
+        .map((res) => actions.fetchSuccessCategory(res.body))
+
+      // .catch((err) => Rx
+      //   .Observable
+      //   .of(appActions.throwError(err)
+      //   )
+      // )
+    })
+}
+
+export function fetchAuthor(action$) {
+
+  return action$
+    .ofType(actionTypes.FETCH_AUTHOR)
+    .switchMap((action) => {
+      return apis.fetchList('authors', action.query)
+        // handle successes
+        .map((res) => actions.fetchSuccessAuthor(res.body))
+      // .catch((err) => Rx
+      //   .Observable
+      //   .of(appActions.throwError(err)
+      //   )
+      // )
+    })
+}
+
+
+
+export function addEditBook(action$) {
+
+  return action$
+    .ofType(actionTypes.ADDEDIT_BOOK)
+    .switchMap((action) => {
+      return apis.addEditItem(action.newBook)
+        // handle successes
+        .map((res) =>
+          actions.AddEditSuccessBook(res.body)
+        )
+      // .catch((err) => Rx
+      //   .Observable
+      //   .of(appActions.throwError(err)
+      //   )
+      // )
+    })
+}
+

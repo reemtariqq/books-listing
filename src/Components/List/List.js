@@ -2,10 +2,10 @@ import React from 'react'
 
 import './List.scss'
 
-function List({ data, columns, title, listName, setItemDetails }) {
+function List({ data, columns, title, listName, setItemId }) {
 
     const getItem = id => {
-        setItemDetails(data.filter(item => item.id === id)[0])
+        setItemId(id)
     }
     return (
         <div className="container">

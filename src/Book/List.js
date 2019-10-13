@@ -6,11 +6,18 @@ import { withRouter } from "react-router-dom"
 import Grid from '../Components/Grid'
 
 
-function BookList() {
+function BookList(props) {
   const dispatch = useDispatch()
   const bookList = useSelector(store => store.Book.list)
+  const query = { page: 1, limit: 6 }
+  if (props.id) {
+    query.id = props.id
+    query.from = props.from
+  }
   const getPage = page => {
-    dispatch(actions.fetchListBook({ page: page, limit: 6 }))
+    query.page = page
+
+    dispatch(actions.fetchListBook(query))
   }
 
   const setItemDetails = (itemDetails) => {
@@ -18,11 +25,11 @@ function BookList() {
   }
 
   useEffect(() => {
-    if (!bookList) {
-      dispatch(actions.fetchListBook({ page: 1, limit: 6 }))
-    }
+    // if (!bookList) {
+    dispatch(actions.fetchListBook(query))
+    // }
   }
-    , [bookList])
+    , [])
   return (
     <div>
       {bookList && <Grid data={bookList} columns="name" getPage={getPage} setItemDetails={setItemDetails} />}
@@ -30,4 +37,4 @@ function BookList() {
   )
 }
 
-export default BookList
+export default withRouter(BookList)

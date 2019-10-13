@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux'
 import actionTypes from '../actions/actionsTypes'
 
+
+
 function genericReducer(state = {}, action) {
 
   switch (action.type) {
@@ -15,10 +17,16 @@ function genericReducer(state = {}, action) {
 
       return fetchListSuccess(state, action)
 
-    case actionTypes.SET_ITEM_DETAILS_AUTHOR:
-    case actionTypes.SET_ITEM_DETAILS_BOOK:
-    case actionTypes.SET_ITEM_DETAILS_CATEGORY:
+    case actionTypes.FETCH_SUCCESS_BOOK:
+    case actionTypes.FETCH_SUCCESS_CATEGORY:
+    case actionTypes.FETCH_SUCCESS_AUTHOR:
       return setItemDetails(state, action)
+
+    case actionTypes.ADDEDIT_BOOK:
+      return addEditBook(state, action)
+
+    case actionTypes.ADDEDIT_SUCCESS_BOOK:
+      return addEditBookSuccess(state, action)
 
     default:
       return state
@@ -34,10 +42,28 @@ function fetchListSuccess(state, action) {
 }
 
 function setItemDetails(state, action) {
-  debugger
   return {
     ...state,
     details: action.details
+  }
+}
+
+
+function addEditBook(state, action) {
+
+  return {
+    ...state,
+    newBook: action.newBook
+  }
+}
+
+function addEditBookSuccess(state, action) {
+  return {
+    ...state,
+    list: [
+      action.newBook,
+      ...state.list,
+    ]
   }
 }
 

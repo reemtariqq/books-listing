@@ -88,3 +88,88 @@ export function setItemDetailsCategory(details) {
 }
 
 
+
+export function fetchBook(query) {
+    return {
+        type: ActionTypes.FETCH_BOOK,
+        query
+    }
+}
+
+export function fetchSuccessBook(response) {
+    return {
+        type: ActionTypes.FETCH_SUCCESS_BOOK,
+        details: response.details,
+    }
+}
+
+export function fetchErrorBook(err) {
+    return {
+        type: ActionTypes.FETCH_ERROR_BOOK,
+        err,
+    }
+}
+
+export function fetchCategory(query) {
+    return {
+        type: ActionTypes.FETCH_CATEGORY,
+        query
+    }
+}
+
+export function fetchSuccessCategory(response) {
+    return {
+        type: ActionTypes.FETCH_SUCCESS_CATEGORY,
+        details: response,
+    }
+}
+
+export function fetchErrorCategory(err) {
+    return {
+        type: ActionTypes.FETCH_ERROR_CATEGORY,
+        err,
+    }
+}
+
+
+export function fetcAuthor(query) {
+    return {
+        type: ActionTypes.FETCH_AUTHOR,
+        query
+    }
+}
+
+export function fetchSuccessAuthor(response) {
+    return {
+        type: ActionTypes.FETCH_SUCCESS_AUTHOR,
+        details: response.details,
+    }
+}
+
+export function fetchErrorAuthor(err) {
+    return {
+        type: ActionTypes.FETCH_ERROR_AUTHOR,
+        err,
+    }
+}
+
+export function AddEditBook(newBook) {
+    return {
+        type: ActionTypes.ADDEDIT_BOOK,
+        newBook
+    }
+}
+
+export function AddEditSuccessBook(newBook) {
+    return {
+        type: ActionTypes.ADDEDIT_SUCCESS_BOOK,
+        newBook
+    }
+}
+
+export function AddEditErrorBook(err) {
+    return {
+        type: ActionTypes.ADDEDIT_ERROR_BOOK,
+        err,
+    }
+}
