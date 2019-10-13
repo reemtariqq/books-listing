@@ -1,9 +1,10 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 import Icon from '../Icon'
 import Pagination from '../Pagination';
 import './Grid.scss'
 
-function Grid({ data, getPage, setItemDetails }) {
+function Grid({ data, getPage, setItemDetails, itemsNo }) {
 
     const getItem = id => {
         setItemDetails(data.filter(item => item.id === id)[0])
@@ -20,9 +21,17 @@ function Grid({ data, getPage, setItemDetails }) {
                     </div>
                 )
             }
-            <Pagination itemsNo={100} pageSize={6} getPage={getPage} />
+            <Pagination itemsNo={itemsNo} pageSize={6} getPage={getPage} />
         </div >
     )
 }
 
-export default Grid 
+export default Grid
+
+
+Grid.propTypes = {
+    itemsNo: PropTypes.number
+}
+Grid.defaultProps = {
+    itemsNo: 100
+}

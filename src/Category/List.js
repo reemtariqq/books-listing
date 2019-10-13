@@ -10,8 +10,9 @@ function CategoryList() {
     const history = useHistory()
     const catList = useSelector(store => store.Category.list)
     const setItemId = (id) => {
+        debugger
         dispatch(actions.fetchCategory({ id }))
-        history.push(`category/${id}`)
+        history.replace(`/category/${id}`)
     }
     useEffect(() => {
         if (!catList) dispatch(actions.fetchListCategories())

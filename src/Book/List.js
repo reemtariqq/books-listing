@@ -32,7 +32,7 @@ function BookList(props) {
     , [])
   return (
     <div>
-      {bookList && <Grid data={bookList} columns="name" getPage={getPage} setItemDetails={setItemDetails} />}
+      {bookList && <Grid itemsNo={props.itemsNo} data={bookList} columns="name" getPage={getPage} setItemDetails={setItemDetails} />}
     </div>
   )
 }

@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import * as actions from '../actions/actions'
 
+import './AddEdit.scss'
 function AddEditBook() {
 
     const initialState = {
@@ -39,28 +40,36 @@ function AddEditBook() {
         })
     }
 
+    const validateInput = input => {
+
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(actions.AddEditBook(formState))
         history.push('/')
     }
+
+
     return (
         <form style={{ display: 'flex', flexDirection: 'column' }} onSubmit={handleSubmit}>
-            <span> Title </span> <input onBlur={(event) => handleFormState('title', event.target.value)} />
-            <span> Author</span>
-            <select onChange={(event) => handleFormState('author', event.target.value)}>
-                {
+            <span> Title </span> <input onChange={validateInput} onBlur={(event) => handleFormState('title', event.target.value)} />
+            <div className="form_select">
+                <span> Author</span>
+                <select onChange={(event) => handleFormState('author', event.target.value)}>
+                    {
 
-                    authorsList && authorsList.map(author => <option key={author.id}>{author.name}</option>)
-                }
-            </select>
+                        authorsList && authorsList.map(author => <option key={author.id}>{author.name}</option>)
+                    }
+                </select>
 
-            <span> Category</span>
-            <select onChange={(event) => handleFormState('category', event.target.value)}>
-                {
-                    categoriesList && categoriesList.map(category => <option key={category.id}>{category.name}</option>)
-                }
-            </select>
+                <span> Category</span>
+                <select onChange={(event) => handleFormState('category', event.target.value)}>
+                    {
+                        categoriesList && categoriesList.map(category => <option key={category.id}>{category.name}</option>)
+                    }
+                </select>
+            </div>
             <textarea rows="20" cols="70" onBlur={(event) => handleFormState('description', event.target.value)} />
             <span> ISBN </span> <input onBlur={(event) => handleFormState('isbn', event.target.value)} />
             <span> Pages count </span> <input onBlur={(event) => handleFormState('pagesNo', event.target.value)} />

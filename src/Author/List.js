@@ -7,7 +7,9 @@ function CategoryList() {
     const dispatch = useDispatch()
     const authorsList = useSelector(store => store.Author.list)
     const setItemId = (id) => {
-        dispatch(action.fetchBook(id))
+        debugger
+        // dispatch(action.fetchAuthor({ id }))
+        // history.replace(`/author/${id}`)
     }
     useEffect(() => {
         if (!authorsList) dispatch(action.fetchListAuthors())

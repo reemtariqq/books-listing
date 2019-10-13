@@ -11,7 +11,9 @@ export default {
 
 
 function fetchList(listName, query) {
-
+  debugger
+  let url = `http://localhost:4000/${listName}/${query && query.id ? query.id : ''
+    }`
   const fetchQuery = query ? {
     '_page': query.page,
     '_limit': query.limit,
@@ -19,14 +21,12 @@ function fetchList(listName, query) {
   } : {}
 
   if (query && query.from) {
-    query[query.from] = query.id
-    delete query.id
-  }
+    url = `http://localhost:4000/${listName}?${query.from}=${query.id}`
 
+  }
   return from(
     request
-      .get(`http://localhost:4000/${listName}/${query && query.id ? query.id : ''
-        }`)
+      .get(url)
       .set("Accept", "application/json")
       .query(fetchQuery)
   )
@@ -37,7 +37,7 @@ function fetchList(listName, query) {
 function fetchItem(itemName, id) {
   return from(
     request
-      .get(`${process.env.REACT_APP__API_HOST}/${itemName}/${id}`)
+      .get(`${process.env.REACT_APP__API_HOST} /${itemName}/${id} `)
   )
 }
 
@@ -48,5 +48,3 @@ function addEditItem(item) {
       .send(item)
   )
 }
-
-
