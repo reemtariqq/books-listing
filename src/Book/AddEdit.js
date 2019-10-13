@@ -30,8 +30,6 @@ function AddEditBook() {
     }, [actions.fetchListCategories])
 
     const handleFormState = (field, value) => {
-
-        console.log(field, value)
         setFormState((oldState) => {
             return {
                 ...oldState,

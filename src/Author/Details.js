@@ -9,7 +9,7 @@ function Details({ match: { params: { id } } }) {
         return (
             <div>
                 <span>{itemDetails.name}</span>
-                <BookList itemsNo={10} id={id} from="author" />
+                <BookList itemsNo={10} id={id} from="authors" />
             </div >
         )
     }

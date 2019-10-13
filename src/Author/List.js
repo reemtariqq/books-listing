@@ -1,18 +1,19 @@
 import React, { useEffect } from 'react'
+import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import * as action from '../actions/actions'
+import * as actions from '../actions/actions'
 
 import List from '../Components/List'
 function CategoryList() {
+    const history = useHistory()
     const dispatch = useDispatch()
     const authorsList = useSelector(store => store.Author.list)
     const setItemId = (id) => {
-        debugger
-        // dispatch(action.fetchAuthor({ id }))
-        // history.replace(`/author/${id}`)
+        dispatch(actions.fetchAuthor({ id }))
+        history.replace(`/author/${id}`)
     }
     useEffect(() => {
-        if (!authorsList) dispatch(action.fetchListAuthors())
+        if (!authorsList) dispatch(actions.fetchListAuthors())
     }, [authorsList])
     return (
         <div>

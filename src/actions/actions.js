@@ -132,17 +132,17 @@ export function fetchErrorCategory(err) {
 }
 
 
-export function fetcAuthor(query) {
+export function fetchAuthor(query) {
     return {
         type: ActionTypes.FETCH_AUTHOR,
         query
     }
 }
 
-export function fetchSuccessAuthor(response) {
+export function fetchSuccessAuthor(details) {
     return {
         type: ActionTypes.FETCH_SUCCESS_AUTHOR,
-        details: response.details,
+        details
     }
 }
 

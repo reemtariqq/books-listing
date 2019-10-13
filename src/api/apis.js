@@ -11,7 +11,6 @@ export default {
 
 
 function fetchList(listName, query) {
-  debugger
   let url = `http://localhost:4000/${listName}/${query && query.id ? query.id : ''
     }`
   const fetchQuery = query ? {

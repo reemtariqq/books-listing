@@ -10,7 +10,6 @@ function CategoryList() {
     const history = useHistory()
     const catList = useSelector(store => store.Category.list)
     const setItemId = (id) => {
-        debugger
         dispatch(actions.fetchCategory({ id }))
         history.replace(`/category/${id}`)
     }
