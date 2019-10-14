@@ -4,6 +4,10 @@ import * as actions from '../actions/actions'
 import { withRouter } from "react-router-dom"
 
 import Grid from '../Components/Grid'
+import sortIcon from '../assets/images/sort-512.png'
+
+
+import './List.scss'
 
 
 function BookList(props) {
@@ -24,14 +28,20 @@ function BookList(props) {
     return dispatch(actions.setItemDetailsBook(itemDetails))
   }
 
+  const fetchBookList = query => {
+    dispatch(actions.fetchListBook(query))
+  }
+
   useEffect(() => {
     // if (!bookList) {
-    dispatch(actions.fetchListBook(query))
-    // }
+    fetchBookList()
   }
+    // }
     , [])
+
   return (
     <div>
+      <img className="sortIcon" src={sortIcon} onClick={() => dispatch(actions.fetchListBook())} />
       {bookList && <Grid itemsNo={props.itemsNo} data={bookList} columns="name" getPage={getPage} setItemDetails={setItemDetails} />}
     </div>
   )

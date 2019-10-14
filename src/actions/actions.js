@@ -160,10 +160,10 @@ export function AddEditBook(newBook) {
     }
 }
 
-export function AddEditSuccessBook(newBook) {
+export function AddEditSuccessBook(item) {
     return {
         type: ActionTypes.ADDEDIT_SUCCESS_BOOK,
-        newBook
+        item
     }
 }
 
@@ -171,5 +171,61 @@ export function AddEditErrorBook(err) {
     return {
         type: ActionTypes.ADDEDIT_ERROR_BOOK,
         err,
+    }
+}
+
+export function AddEditCategory(item) {
+    return {
+        type: ActionTypes.ADDEDIT_CATEGORY,
+        item
+    }
+}
+
+export function AddEditSuccessCategory(item) {
+    return {
+        type: ActionTypes.ADDEDIT_SUCCESS_CATEGORY,
+        item
+    }
+}
+
+export function AddEditErrorCategory(err) {
+    return {
+        type: ActionTypes.ADDEDIT_ERROR_CATEGORY,
+        err,
+    }
+}
+
+export function AddEditAuthor(item) {
+    return {
+        type: ActionTypes.ADDEDIT_AUTHOR,
+        item
+    }
+}
+
+export function AddEditSuccessAuthor(item) {
+    return {
+        type: ActionTypes.ADDEDIT_SUCCESS_AUTHOR,
+        item
+    }
+}
+
+export function AddEditErrorAuthor(err) {
+    return {
+        type: ActionTypes.ADDEDIT_ERROR_AUTHOR,
+        err,
+    }
+}
+
+
+export function getEditMode() {
+    return {
+        type: ActionTypes.GET_EDIT_MODE,
+    }
+}
+
+export function setEditMode(isEditMode) {
+    return {
+        type: ActionTypes.SET_EDIT_MODE,
+        isEditMode,
     }
 }

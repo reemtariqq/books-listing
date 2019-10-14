@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 import actionTypes from '../actions/actionsTypes'
 
-
+import ConfigReducer from './ConfigReducer'
 
 function genericReducer(state = {}, action) {
 
@@ -23,10 +23,13 @@ function genericReducer(state = {}, action) {
       return setItemDetails(state, action)
 
     case actionTypes.ADDEDIT_BOOK:
+      // case actionTypes.
       return addEditBook(state, action)
 
     case actionTypes.ADDEDIT_SUCCESS_BOOK:
-      return addEditBookSuccess(state, action)
+    case actionTypes.ADDEDIT_SUCCESS_AUTHOR:
+    case actionTypes.ADDEDIT_SUCCESS_CATEGORY:
+      return addEditItemSuccess(state, action)
 
     default:
       return state
@@ -57,12 +60,15 @@ function addEditBook(state, action) {
   }
 }
 
-function addEditBookSuccess(state, action) {
+function addEditItemSuccess(state, action) {
+  const updateList = state.list.filter(function (obj) {
+    return obj.id !== action.item.id;
+  });
   return {
     ...state,
     list: [
-      action.newBook,
-      ...state.list,
+      action.item,
+      ...updateList,
     ]
   }
 }
@@ -83,7 +89,8 @@ const rootReducer = combineReducers({
   // check for extra data in the action
   Author: createFilteredReducer(genericReducer, action => action.type.endsWith('_AUTHOR')),
   // respond to all 'INCREMENT' actions, but never 'DECREMENT'
-  Category: createFilteredReducer(genericReducer, action => action.type.endsWith('_CATEGORY'))
+  Category: createFilteredReducer(genericReducer, action => action.type.endsWith('_CATEGORY')),
+  Config: ConfigReducer
 })
 
 

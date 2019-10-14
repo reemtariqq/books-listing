@@ -17,7 +17,8 @@ export default [
   fetchCategory,
   fetchAuthor,
 
-  addEditBook
+  addEditBook,
+  addEditCategory
 
 ]
 
@@ -127,7 +128,7 @@ export function addEditBook(action$) {
   return action$
     .ofType(actionTypes.ADDEDIT_BOOK)
     .switchMap((action) => {
-      return apis.addEditItem(action.newBook)
+      return apis.addEditItem('books', action.newBook)
         // handle successes
         .map((res) =>
           actions.AddEditSuccessBook(res.body)
@@ -140,3 +141,20 @@ export function addEditBook(action$) {
     })
 }
 
+export function addEditCategory(action$) {
+
+  return action$
+    .ofType(actionTypes.ADDEDIT_CATEGORY)
+    .switchMap((action) => {
+      return apis.editItem('categories', action.item)
+        // handle successes
+        .map((res) =>
+          actions.AddEditSuccessCategory(res.body)
+        )
+      // .catch((err) => Rx
+      //   .Observable
+      //   .of(appActions.throwError(err)
+      //   )
+      // )
+    })
+}

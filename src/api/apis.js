@@ -6,6 +6,7 @@ export default {
   fetchList,
   fetchItem,
   addEditItem,
+  editItem
 }
 
 
@@ -40,10 +41,18 @@ function fetchItem(itemName, id) {
   )
 }
 
-function addEditItem(item) {
+function addEditItem(itemName, item) {
   return from(
     request
-      .post(`http://localhost:4000/books`)
+      .post(`http://localhost:4000/${itemName}`)
+      .send(item)
+  )
+}
+
+function editItem(itemName, item) {
+  return from(
+    request
+      .patch(`http://localhost:4000/${itemName}/${item.id}`)
       .send(item)
   )
 }

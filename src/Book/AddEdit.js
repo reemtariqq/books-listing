@@ -14,7 +14,7 @@ function AddEditBook() {
         isbn: '',
         pagesNo: '',
         year: '',
-        imageURL: ''
+        imageURL: '',
     }
     const [formState, setFormState] = React.useState(initialState)
 

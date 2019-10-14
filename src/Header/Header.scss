@@ -2,26 +2,49 @@
 
 $primary-color: #333333;
 $editMode-color:#660200;
-.header {
-background-color: $primary-color;
- height: 40px;   
- span{
-     color: white;
-    //  font-size: larger;
-     
- }
- .link{
-    margin-right: 7px;
+
+%header-button {
     height: 30px;
     width: 130px;
     margin-top: 4px;
     border-radius: 4px;
-    background: #3D8ACD;
-    border-color: #3D8ACD;
     display: inline-block;
     text-decoration: none;
     color:white;
     text-align: center;
     line-height: 28px;
+    margin-right: 5px;
+    font-size: large;
+    cursor: pointer;
+  }
+.header {
+background-color: $primary-color;
+ height: 40px;   
+ span{
+     color: white;  
  }
+
+ &_text{
+    text-decoration: none;
+    color: white;
+    font-size: large;
+    padding: 13px;
+     
+ }
+ .link{
+    @extend %header-button;
+    background: #3D8ACD;
+    border-color: #3D8ACD;
+  
+ }
+ &_editMode{
+    @extend %header-button;
+    background-color: #FF0380;
+    border-color: #FF0380;
+ }
+}
+
+.edit{
+    background-color: $editMode-color;
+
 }
