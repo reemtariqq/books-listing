@@ -21,7 +21,7 @@ function Grid({ data, getPage, setItemId, itemsNo }) {
                     </div>
                 )
             }
-            <Pagination itemsNo={itemsNo} pageSize={6} getPage={getPage} />
+            {data && <Pagination itemsNo={itemsNo} pageSize={6} getPage={getPage} />}
         </div >
     )
 }

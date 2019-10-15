@@ -72,7 +72,7 @@ export function addCategory(action$) {
 export function editCategory(action$) {
 
   return action$
-    .ofType(actionTypes.ADDEDIT_CATEGORY)
+    .ofType(actionTypes.EDIT_CATEGORY)
     .switchMap((action) => {
       return apis.editItem('categories', action.item)
 

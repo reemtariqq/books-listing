@@ -51,7 +51,7 @@ export function fetchAuthor(action$) {
 export function editAuthor(action$) {
 
   return action$
-    .ofType(actionTypes.ADDEDIT_AUTHOR)
+    .ofType(actionTypes.EDIT_AUTHOR)
     .switchMap((action) => {
       return apis.editItem('authors', action.item)
 
