@@ -24,46 +24,6 @@ function AddEditBook({ location: { state: details } }) {
     let authorsList = useSelector(store => store.Author.list)
     let categoriesList = useSelector(store => store.Category.list)
 
-    if (details && authorsList && categoriesList) {
-
-        authorsList = authorsList.map(author => {
-            if (author.id === details.author) {
-                return (
-                    {
-                        info: author,
-                        selected: true
-                    }
-                )
-            }
-            else {
-                return (
-                    {
-                        info: author,
-                        selected: false
-                    }
-                )
-            }
-        })
-
-        categoriesList = categoriesList.map(cat => {
-            if (cat.id === details.category) {
-                return (
-                    {
-                        info: cat,
-                        selected: true
-                    }
-                )
-            }
-            else {
-                return (
-                    {
-                        info: cat,
-                        selected: false
-                    }
-                )
-            }
-        })
-    }
 
     React.useEffect(() => {
         if (!categoriesList) dispatch(actions.fetchListCategories())
@@ -100,10 +60,10 @@ function AddEditBook({ location: { state: details } }) {
                 <select onChange={(event) => handleFormState('author', event.target.value)}>
                     {
 
-                        authorsList && authorsList.map(author => {
+                        authorsList && authorsList.map(author =>
 
-                            return (<option selected={author.selected} key={author.info.id}>{author.info.name}</option>)
-                        })
+                            <option selected={details.author === author.id} key={author.id}>{author.name}</option>
+                        )
                     }
 
                 </select>
@@ -111,7 +71,8 @@ function AddEditBook({ location: { state: details } }) {
                 <span> Category</span>
                 <select onChange={(event) => handleFormState('category', event.target.value)}>
                     {
-                        categoriesList && categoriesList.map(category => <option selected={category.selected} key={category.info.id}>{category.info.name}</option>)
+
+                        categoriesList && categoriesList.map(category => <option selected={details.category === category.id} key={category.id}>{category.name}</option>)
                     }
                 </select>
             </div>
