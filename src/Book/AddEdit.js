@@ -94,7 +94,7 @@ function AddEditBook({ location: { state: details } }) {
 
     return (
         <form style={{ display: 'flex', flexDirection: 'column' }} onSubmit={handleSubmit}>
-            <span> Title </span> <input defaultValue={details.title} onBlur={(event) => handleFormState('title', event.target.value)} />
+            <span> Title </span> <input defaultValue={formState.title} onBlur={(event) => handleFormState('title', event.target.value)} />
             <div className="form_select">
                 <span> Author</span>
                 <select onChange={(event) => handleFormState('author', event.target.value)}>
@@ -115,12 +115,12 @@ function AddEditBook({ location: { state: details } }) {
                     }
                 </select>
             </div>
-            <textarea defaultValue={details.description} rows="20" cols="70" onBlur={(event) => handleFormState('description', event.target.value)} />
-            <span> ISBN </span> <input defaultValue={details.isbn} onBlur={(event) => handleFormState('isbn', event.target.value)} />
-            <span> Pages count </span> <input defaultValue={details.pagesNumber} onBlur={(event) => handleFormState('pagesNo', event.target.value)} />
+            <textarea defaultValue={formState.description} rows="20" cols="70" onBlur={(event) => handleFormState('description', event.target.value)} />
+            <span> ISBN </span> <input defaultValue={formState.isbn} onBlur={(event) => handleFormState('isbn', event.target.value)} />
+            <span> Pages count </span> <input defaultValue={formState.pagesNumber} onBlur={(event) => handleFormState('pagesNo', event.target.value)} />
 
-            <span> Year Published </span> <input defaultValue={details.publishYear} onBlur={(event) => handleFormState('year', event.target.value)} />
-            <span> Image URL </span> <input defaultValue={details.image} onBlur={(event) => handleFormState('imageURL', event.target.value)} />
+            <span> Year Published </span> <input defaultValue={formState.publishYear} onBlur={(event) => handleFormState('year', event.target.value)} />
+            <span> Image URL </span> <input defaultValue={formState.image} onBlur={(event) => handleFormState('imageURL', event.target.value)} />
             <div>
                 <input type="submit" value="submit" />
                 <button> Cancel</button>
