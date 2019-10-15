@@ -42,6 +42,7 @@ function fetchItem(itemName, id) {
 }
 
 function addItem(itemName, item) {
+  debugger
   return from(
     request
       .post(`http://localhost:4000/${itemName}`)

@@ -3,6 +3,7 @@ import actionTypes from '../actions/actionsTypes'
 
 import ConfigReducer from './ConfigReducer'
 
+
 function genericReducer(state = {}, action) {
 
   switch (action.type) {
@@ -22,13 +23,13 @@ function genericReducer(state = {}, action) {
     case actionTypes.FETCH_SUCCESS_AUTHOR:
       return setItemDetails(state, action)
 
-    case actionTypes.ADDEDIT_BOOK:
+    case actionTypes.ADD_BOOK:
       // case actionTypes.
       return addEditBook(state, action)
 
-    case actionTypes.ADDEDIT_SUCCESS_BOOK:
-    case actionTypes.ADDEDIT_SUCCESS_AUTHOR:
-    case actionTypes.ADDEDIT_SUCCESS_CATEGORY:
+    case actionTypes.ADD_SUCCESS_BOOK:
+    case actionTypes.ADD_SUCCESS_AUTHOR:
+    case actionTypes.ADD_SUCCESS_CATEGORY:
       return addEditItemSuccess(state, action)
 
     default:
@@ -61,6 +62,7 @@ function addEditBook(state, action) {
 }
 
 function addEditItemSuccess(state, action) {
+  debugger
   const updateList = state.list.filter(function (obj) {
     return obj.id !== action.item.id;
   });

@@ -44,7 +44,7 @@ function AddEditBook() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(actions.AddEditBook(formState))
+        dispatch(actions.AddBook(formState))
         history.push('/')
     }
 

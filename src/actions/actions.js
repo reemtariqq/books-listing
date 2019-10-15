@@ -153,65 +153,110 @@ export function fetchErrorAuthor(err) {
     }
 }
 
-export function AddEditBook(newBook) {
+export function AddBook(newBook) {
     return {
-        type: ActionTypes.ADDEDIT_BOOK,
+        type: ActionTypes.ADD_BOOK,
         newBook
     }
 }
 
-export function AddEditSuccessBook(item) {
+export function AddSuccessBook(item) {
     return {
-        type: ActionTypes.ADDEDIT_SUCCESS_BOOK,
+        type: ActionTypes.ADD_SUCCESS_BOOK,
         item
     }
 }
 
-export function AddEditErrorBook(err) {
+export function AddErrorBook(err) {
     return {
-        type: ActionTypes.ADDEDIT_ERROR_BOOK,
+        type: ActionTypes.ADD_ERROR_BOOK,
         err,
     }
 }
 
-export function AddEditCategory(item) {
+export function AddAuthor(newAuthor) {
     return {
-        type: ActionTypes.ADDEDIT_CATEGORY,
+        type: ActionTypes.ADD_AUTHOR,
+        newAuthor
+    }
+}
+
+export function AddSuccessAuthor(item) {
+    debugger
+    return {
+        type: ActionTypes.ADD_SUCCESS_AUTHOR,
         item
     }
 }
 
-export function AddEditSuccessCategory(item) {
+export function AddErrorAuthor(err) {
     return {
-        type: ActionTypes.ADDEDIT_SUCCESS_CATEGORY,
-        item
-    }
-}
-
-export function AddEditErrorCategory(err) {
-    return {
-        type: ActionTypes.ADDEDIT_ERROR_CATEGORY,
+        type: ActionTypes.ADD_ERROR_AUTHOR,
         err,
     }
 }
 
-export function AddEditAuthor(item) {
+
+export function AddCategory(item) {
     return {
-        type: ActionTypes.ADDEDIT_AUTHOR,
+        type: ActionTypes.ADD_CATEGORY,
         item
     }
 }
 
-export function AddEditSuccessAuthor(item) {
+export function AddSuccessCategory(item) {
+    debugger
     return {
-        type: ActionTypes.ADDEDIT_SUCCESS_AUTHOR,
+        type: ActionTypes.ADD_SUCCESS_CATEGORY,
         item
     }
 }
 
-export function AddEditErrorAuthor(err) {
+export function AddErrorCategory(err) {
     return {
-        type: ActionTypes.ADDEDIT_ERROR_AUTHOR,
+        type: ActionTypes.ADD_ERROR_CATEGORY,
+        err,
+    }
+}
+
+export function EditCategory(item) {
+    return {
+        type: ActionTypes.EDIT_CATEGORY,
+        item
+    }
+}
+
+export function EditSuccessCategory(item) {
+    return {
+        type: ActionTypes.EDIT_SUCCESS_CATEGORY,
+        item
+    }
+}
+
+export function EditErrorCategory(err) {
+    return {
+        type: ActionTypes.EDIT_ERROR_CATEGORY,
+        err,
+    }
+}
+
+export function EditAuthor(item) {
+    return {
+        type: ActionTypes.EDIT_AUTHOR,
+        item
+    }
+}
+
+export function EditSuccessAuthor(item) {
+    return {
+        type: ActionTypes.EDIT_SUCCESS_AUTHOR,
+        item
+    }
+}
+
+export function EditErrorAuthor(err) {
+    return {
+        type: ActionTypes.EDIT_ERROR_AUTHOR,
         err,
     }
 }

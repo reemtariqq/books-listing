@@ -15,8 +15,10 @@ export default [
   fetchAuthor,
 
   addBook,
+  addCategory,
   editCategory,
-  editAuthor
+  addAuthor,
+  editAuthor,
 
 ]
 
@@ -124,12 +126,12 @@ export function fetchAuthor(action$) {
 export function addBook(action$) {
 
   return action$
-    .ofType(actionTypes.ADDEDIT_BOOK)
+    .ofType(actionTypes.ADD_BOOK)
     .switchMap((action) => {
       return apis.addItem('books', action.newBook)
 
         .map((res) =>
-          actions.AddEditSuccessBook(res.body)
+          actions.AddSuccessBook(res.body)
         )
       // .catch((err) => Rx
       //   .Observable
@@ -144,10 +146,10 @@ export function addCategory(action$) {
   return action$
     .ofType(actionTypes.ADD_CATEGORY)
     .switchMap((action) => {
-      return apis.addItem('category', action.item)
+      return apis.addItem('categories', action.item)
 
         .map((res) =>
-          actions.AddEditSuccessCategory(res.body)
+          actions.AddSuccessCategory(res.body)
         )
       // .catch((err) => Rx
       //   .Observable
@@ -165,7 +167,7 @@ export function editCategory(action$) {
       return apis.editItem('categories', action.item)
 
         .map((res) =>
-          actions.AddEditSuccessCategory(res.body)
+          actions.EditSuccessCategory(res.body)
         )
       // .catch((err) => Rx
       //   .Observable
@@ -183,7 +185,7 @@ export function editAuthor(action$) {
       return apis.editItem('authors', action.item)
 
         .map((res) =>
-          actions.AddEditSuccessAuthor(res.body)
+          actions.EditSuccessAuthor(res.body)
         )
       // .catch((err) => Rx
       //   .Observable
@@ -192,3 +194,23 @@ export function editAuthor(action$) {
       // )
     })
 }
+
+
+export function addAuthor(action$) {
+
+  return action$
+    .ofType(actionTypes.ADD_AUTHOR)
+    .switchMap((action) => {
+      return apis.addItem('authors', action.newAuthor)
+
+        .map((res) =>
+          actions.AddSuccessAuthor(res.body)
+        )
+      // .catch((err) => Rx
+      //   .Observable
+      //   .of(appActions.throwError(err)
+      //   )
+      // )
+    })
+}
+
