@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import * as actions from '../actions/actions'
+import { fetchAuthor, fetchListAuthors } from '../actions'
 
 import List from '../Components/List'
 function CategoryList() {
@@ -9,11 +9,11 @@ function CategoryList() {
     const dispatch = useDispatch()
     const authorsList = useSelector(store => store.Author.list)
     const setItemId = (id) => {
-        dispatch(actions.fetchAuthor({ id }))
+        dispatch(fetchAuthor({ id }))
         history.replace(`/author/${id}`)
     }
     useEffect(() => {
-        if (!authorsList) dispatch(actions.fetchListAuthors())
+        if (!authorsList) dispatch(fetchListAuthors())
     }, [authorsList])
     return (
         <div>

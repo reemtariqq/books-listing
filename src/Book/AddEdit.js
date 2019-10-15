@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
-import * as actions from '../actions/actions'
+import * as actions from '../actions'
 
 import './AddEdit.scss'
 function AddEditBook({ location: { state: details } }) {
@@ -44,9 +44,9 @@ function AddEditBook({ location: { state: details } }) {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (details) {
-            dispatch(actions.EditBook(formState))
+            dispatch(actions.editBook(formState))
         }
-        else { dispatch(actions.AddBook(formState)) }
+        else { dispatch(actions.addBook(formState)) }
 
         history.push('/')
     }

@@ -3,7 +3,7 @@ import 'rxjs/add/operator/do'
 import 'rxjs/add/operator/map'
 import apis from '../apis' // eslint-disable-line
 import actionTypes from '../../actions/actionsTypes'
-import * as actions from '../../actions/actions'
+import * as actions from '../../actions'
 
 export default [
   fetchListAuthors,
@@ -56,7 +56,7 @@ export function editAuthor(action$) {
       return apis.editItem('authors', action.item)
 
         .map((res) =>
-          actions.EditSuccessAuthor(res.body)
+          actions.editErrorAuthor(res.body)
         )
       // .catch((err) => Rx
       //   .Observable
@@ -75,7 +75,7 @@ export function addAuthor(action$) {
       return apis.addItem('authors', action.newAuthor)
 
         .map((res) =>
-          actions.AddSuccessAuthor(res.body)
+          actions.addSuccessAuthor(res.body)
         )
       // .catch((err) => Rx
       //   .Observable

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { withRouter, useHistory } from "react-router-dom"
-import * as actions from '../actions/actions'
+import * as actions from '../actions'
 
 import List from '../Components/List'
 

@@ -151,63 +151,63 @@ export function fetchErrorAuthor(err) {
     }
 }
 
-export function AddBook(newBook) {
+export function addBook(newBook) {
     return {
         type: ActionTypes.ADD_BOOK,
         newBook
     }
 }
 
-export function AddSuccessBook(item) {
+export function addSuccessBook(item) {
     return {
         type: ActionTypes.ADD_SUCCESS_BOOK,
         item
     }
 }
 
-export function AddErrorBook(err) {
+export function addErrorBook(err) {
     return {
         type: ActionTypes.ADD_ERROR_BOOK,
         err,
     }
 }
 
-export function AddAuthor(newAuthor) {
+export function addAuthor(newAuthor) {
     return {
         type: ActionTypes.ADD_AUTHOR,
         newAuthor
     }
 }
 
-export function AddSuccessAuthor(item) {
+export function addSuccessAuthor(item) {
     return {
         type: ActionTypes.ADD_SUCCESS_AUTHOR,
         item
     }
 }
 
-export function AddErrorAuthor(err) {
+export function addErrorAuthor(err) {
     return {
         type: ActionTypes.ADD_ERROR_AUTHOR,
         err,
     }
 }
 
-export function AddCategory(item) {
+export function addCategory(item) {
     return {
         type: ActionTypes.ADD_CATEGORY,
         item
     }
 }
 
-export function AddSuccessCategory(item) {
+export function addSuccessCategory(item) {
     return {
         type: ActionTypes.ADD_SUCCESS_CATEGORY,
         item
     }
 }
 
-export function AddErrorCategory(err) {
+export function addErrorCategory(err) {
     return {
         type: ActionTypes.ADD_ERROR_CATEGORY,
         err,
@@ -215,21 +215,21 @@ export function AddErrorCategory(err) {
 }
 
 
-export function EditBook(item) {
+export function editBook(item) {
     return {
         type: ActionTypes.EDIT_BOOK,
         item
     }
 }
 
-export function EditSuccessBook(item) {
+export function editSuccessBook(item) {
     return {
         type: ActionTypes.EDIT_SUCCESS_BOOK,
         item
     }
 }
 
-export function EditErrorBook(err) {
+export function editErrorBook(err) {
     return {
         type: ActionTypes.EDIT_ERROR_BOOK,
         err,
@@ -237,42 +237,42 @@ export function EditErrorBook(err) {
 }
 
 
-export function EditCategory(item) {
+export function editCategory(item) {
     return {
         type: ActionTypes.EDIT_CATEGORY,
         item
     }
 }
 
-export function EditSuccessCategory(item) {
+export function editSuccessCategory(item) {
     return {
         type: ActionTypes.EDIT_SUCCESS_CATEGORY,
         item
     }
 }
 
-export function EditErrorCategory(err) {
+export function editErrorCategory(err) {
     return {
         type: ActionTypes.EDIT_ERROR_CATEGORY,
         err,
     }
 }
 
-export function EditAuthor(item) {
+export function editAuthor(item) {
     return {
         type: ActionTypes.EDIT_AUTHOR,
         item
     }
 }
 
-export function EditSuccessAuthor(item) {
+export function editSuccessAuthor(item) {
     return {
         type: ActionTypes.EDIT_SUCCESS_AUTHOR,
         item
     }
 }
 
-export function EditErrorAuthor(err) {
+export function editErrorAuthor(err) {
     return {
         type: ActionTypes.EDIT_ERROR_AUTHOR,
         err,

@@ -3,7 +3,7 @@ import 'rxjs/add/operator/do'
 import 'rxjs/add/operator/map'
 import apis from '../apis' // eslint-disable-line
 import actionTypes from '../../actions/actionsTypes'
-import * as actions from '../../actions/actions'
+import * as actions from '../../actions'
 
 export default [
   fetchListCategories,
@@ -59,7 +59,7 @@ export function addCategory(action$) {
       return apis.addItem('categories', action.item)
 
         .map((res) =>
-          actions.AddSuccessCategory(res.body)
+          actions.addSuccessCategory(res.body)
         )
       // .catch((err) => Rx
       //   .Observable
@@ -77,7 +77,7 @@ export function editCategory(action$) {
       return apis.editItem('categories', action.item)
 
         .map((res) =>
-          actions.EditSuccessCategory(res.body)
+          actions.editSuccessCategory(res.body)
         )
       // .catch((err) => Rx
       //   .Observable

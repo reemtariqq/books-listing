@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
-import * as actions from '../actions/actions'
+import * as actions from '../actions'
 
 function AddEditCategory({ location: { state: details } }) {
     const history = useHistory()
@@ -12,10 +12,10 @@ function AddEditCategory({ location: { state: details } }) {
         const newCategory = { name: title }
         if (details && details.id) {
             newCategory.id = details.id
-            dispatch(actions.EditCategory(newCategory))
+            dispatch(actions.editCategory(newCategory))
         }
         else {
-            dispatch(actions.AddCategory(newCategory))
+            dispatch(actions.addCategory(newCategory))
 
         }
         history.push('/')

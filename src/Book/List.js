@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import * as actions from '../actions/actions'
+import * as actions from '../actions'
 import { withRouter, useHistory } from "react-router-dom"
 
 import Grid from '../Components/Grid'

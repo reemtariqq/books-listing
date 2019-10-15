@@ -8,7 +8,7 @@ import * as Rx from 'rxjs'
 
 import apis from '../apis' // eslint-disable-line
 import actionTypes from '../../actions/actionsTypes'
-import * as actions from '../../actions/actions'
+import * as actions from '../../actions'
 
 export default [
   fetchListBooks,
@@ -57,7 +57,7 @@ export function addBook(action$) {
       return apis.addItem('books', action.newBook)
 
         .map((res) =>
-          actions.AddSuccessBook(res.body)
+          actions.addSuccessBook(res.body)
         )
       // .catch((err) => Rx
       //   .Observable
@@ -78,7 +78,7 @@ export function editBook(action$) {
       return apis.editItem('books', action.item)
 
         .map((res) =>
-          actions.EditSuccessBook(res.body)
+          actions.editSuccessBook(res.body)
         )
       // .catch((err) => Rx
       //   .Observable

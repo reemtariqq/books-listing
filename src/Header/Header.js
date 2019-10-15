@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { setEditMode } from '../actions/actions'
+import { setEditMode } from '../actions'
 import './Header.scss'
 import { Link } from 'react-router-dom'
 

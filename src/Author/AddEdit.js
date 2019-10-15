@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
-import * as actions from '../actions/actions'
+import * as actions from '../actions'
 
 function AddEditAuthor({ location: { state: details } }) {
     const history = useHistory()
@@ -12,10 +12,10 @@ function AddEditAuthor({ location: { state: details } }) {
         const newAuthor = { name: name }
         if (details && details.id) {
             newAuthor.id = details.id
-            dispatch(actions.EditAuthor(newAuthor))
+            dispatch(actions.editAuthor(newAuthor))
         }
         else {
-            dispatch(actions.AddAuthor(newAuthor))
+            dispatch(actions.addAuthor(newAuthor))
         }
         history.push('/')
     }
