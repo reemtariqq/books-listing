@@ -1,6 +1,11 @@
 import 'rxjs/add/operator/switchMap'
 import 'rxjs/add/operator/do'
 import 'rxjs/add/operator/map'
+import 'rxjs/add/operator/mergeMap'
+
+import 'rxjs/add/observable/of';
+import * as Rx from 'rxjs'
+
 import apis from '../apis' // eslint-disable-line
 import actionTypes from '../../actions/actionsTypes'
 import * as actions from '../../actions/actions'
@@ -37,9 +42,17 @@ export function fetchBook(action$) {
   return action$
     .ofType(actionTypes.FETCH_BOOK)
     .switchMap((action) => {
-      return apis.fetchList('books', action.query)
-
-        .map((res) => actions.fetchListSuccessBook(res.body))
+      return apis.fetchList('books', action.query).mergeMap((res) =>
+        Rx.Observable.of(
+          actions.fetchSuccessBook(res.body),
+          actions.fetchCategory({ id: res.body.category })
+        ))
+      // .map((res) => {
+      //   actions.fetchSuccessBook(res.body)
+      //   actions.fetchCategory(res.body.category).map((res) => {
+      //     action.fetchSuccessCategory(res)
+      //   })
+      // })
       // .catch((err) => Rx
       //   .Observable
       //   .of(appActions.throwError(err)
@@ -48,38 +61,7 @@ export function fetchBook(action$) {
     })
 }
 
-export function fetchCategory(action$) {
 
-  return action$
-    .ofType(actionTypes.FETCH_CATEGORY)
-    .switchMap((action) => {
-      return apis.fetchList('categories', action.query)
-
-        .map((res) => actions.fetchSuccessCategory(res.body))
-
-      // .catch((err) => Rx
-      //   .Observable
-      //   .of(appActions.throwError(err)
-      //   )
-      // )
-    })
-}
-
-export function fetchAuthor(action$) {
-
-  return action$
-    .ofType(actionTypes.FETCH_AUTHOR)
-    .switchMap((action) => {
-      return apis.fetchList('authors', action.query)
-
-        .map((res) => actions.fetchSuccessAuthor(res.body))
-      // .catch((err) => Rx
-      //   .Observable
-      //   .of(appActions.throwError(err)
-      //   )
-      // )
-    })
-}
 
 
 

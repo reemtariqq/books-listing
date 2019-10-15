@@ -4,10 +4,10 @@ import Icon from '../Icon'
 import Pagination from '../Pagination';
 import './Grid.scss'
 
-function Grid({ data, getPage, setItemDetails, itemsNo }) {
+function Grid({ data, getPage, setItemId, itemsNo }) {
 
     const getItem = id => {
-        setItemDetails(data.filter(item => item.id === id)[0])
+        setItemId(id)
     }
     return (
         <div>

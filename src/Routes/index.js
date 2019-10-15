@@ -6,6 +6,8 @@ import AddEditCategory from '../Category/AddEdit'
 import AddEditAuthor from '../Author/AddEdit'
 import CategoryDetails from '../Category/Details'
 import AuthorDetails from '../Author/Details'
+import BookDetails from '../Book/Details'
+
 
 
 function AppRoutes() {
@@ -17,6 +19,7 @@ function AppRoutes() {
                     <Route exact path="/book/new" component={AddEditBook} />
                     <Route exact path="/category/new" component={AddEditCategory} />
                     <Route exact path="/author/new" component={AddEditAuthor} />
+                    <Route exact path="/book/:id" component={BookDetails} />
                     <Route exact path="/category/:id" component={CategoryDetails} />
                     <Route exact path="/author/:id" component={AuthorDetails} />
                     <Route exact path="/book/:id/edit" component={AddEditBook} />

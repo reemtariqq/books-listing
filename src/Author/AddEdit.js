@@ -8,7 +8,6 @@ function AddEditAuthor({ location: { state: details } }) {
     const dispatch = useDispatch()
     const [name, setName] = React.useState('')
     const handleSubmit = (e) => {
-        debugger
         e.preventDefault();
         const newAuthor = { name: name }
         if (details && details.id) {

@@ -66,7 +66,6 @@ function addEditBook(state, action) {
 }
 
 function addEditItemSuccess(state, action) {
-  debugger
   const updateList = state.list.filter(function (obj) {
     return obj.id !== action.item.id;
   });

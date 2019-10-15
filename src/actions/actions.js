@@ -96,10 +96,10 @@ export function fetchBook(query) {
     }
 }
 
-export function fetchSuccessBook(response) {
+export function fetchSuccessBook(book) {
     return {
         type: ActionTypes.FETCH_SUCCESS_BOOK,
-        details: response.details,
+        details: book,
     }
 }
 
@@ -182,7 +182,6 @@ export function AddAuthor(newAuthor) {
 }
 
 export function AddSuccessAuthor(item) {
-    debugger
     return {
         type: ActionTypes.ADD_SUCCESS_AUTHOR,
         item
@@ -205,7 +204,6 @@ export function AddCategory(item) {
 }
 
 export function AddSuccessCategory(item) {
-    debugger
     return {
         type: ActionTypes.ADD_SUCCESS_CATEGORY,
         item

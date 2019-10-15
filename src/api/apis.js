@@ -18,8 +18,14 @@ function fetchList(listName, query) {
     '_page': query.page,
     '_limit': query.limit,
 
+
   } : {}
 
+  if (query && query.sort) {
+    fetchQuery._sort = query.sort.by
+    fetchQuery._order = query.sort.direction
+
+  }
   if (query && query.from) {
     url = `http://localhost:4000/${listName}?${query.from}=${query.id}`
 
@@ -42,7 +48,6 @@ function fetchItem(itemName, id) {
 }
 
 function addItem(itemName, item) {
-  debugger
   return from(
     request
       .post(`http://localhost:4000/${itemName}`)
