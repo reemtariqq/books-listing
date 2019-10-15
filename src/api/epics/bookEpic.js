@@ -1,9 +1,6 @@
 import 'rxjs/add/operator/switchMap'
 import 'rxjs/add/operator/do'
 import 'rxjs/add/operator/map'
-import 'rxjs/add/operator/takeUntil'
-import 'rxjs/add/operator/mergeMap'
-import 'rxjs/add/operator/take'
 import apis from '../apis' // eslint-disable-line
 import actionTypes from '../../actions/actionsTypes'
 import * as actions from '../../actions/actions'
@@ -17,8 +14,9 @@ export default [
   fetchCategory,
   fetchAuthor,
 
-  addEditBook,
-  addEditCategory
+  addBook,
+  editCategory,
+  editAuthor
 
 ]
 
@@ -29,7 +27,7 @@ export function fetchListBooks(action$) {
     .ofType(actionTypes.FETCH_LIST_BOOK)
     .switchMap((action) => {
       return apis.fetchList('books', action.query)
-        // handle successes
+
         .map((res) => actions.fetchListSuccessBook(res))
       // .catch((err) => Rx
       //   .Observable
@@ -45,7 +43,7 @@ export function fetchListAuthors(action$) {
     .ofType(actionTypes.FETCH_LIST_AUTHOR)
     .switchMap((action) => {
       return apis.fetchList('authors')
-        // handle successes
+
         .map((res) => actions.fetchListSuccessAuthors(res))
       // .catch((err) => Rx
       //   .Observable
@@ -61,7 +59,7 @@ export function fetchListCategories(action$) {
     .ofType(actionTypes.FETCH_LIST_CATEGORY)
     .switchMap((action) => {
       return apis.fetchList('categories')
-        // handle successes
+
         .map((res) => actions.fetchListSuccessCategories(res))
       // .catch((err) => Rx
       //   .Observable
@@ -78,7 +76,7 @@ export function fetchBook(action$) {
     .ofType(actionTypes.FETCH_BOOK)
     .switchMap((action) => {
       return apis.fetchList('books', action.query)
-        // handle successes
+
         .map((res) => actions.fetchListSuccessBook(res.body))
       // .catch((err) => Rx
       //   .Observable
@@ -94,7 +92,7 @@ export function fetchCategory(action$) {
     .ofType(actionTypes.FETCH_CATEGORY)
     .switchMap((action) => {
       return apis.fetchList('categories', action.query)
-        // handle successes
+
         .map((res) => actions.fetchSuccessCategory(res.body))
 
       // .catch((err) => Rx
@@ -111,7 +109,7 @@ export function fetchAuthor(action$) {
     .ofType(actionTypes.FETCH_AUTHOR)
     .switchMap((action) => {
       return apis.fetchList('authors', action.query)
-        // handle successes
+
         .map((res) => actions.fetchSuccessAuthor(res.body))
       // .catch((err) => Rx
       //   .Observable
@@ -123,13 +121,13 @@ export function fetchAuthor(action$) {
 
 
 
-export function addEditBook(action$) {
+export function addBook(action$) {
 
   return action$
     .ofType(actionTypes.ADDEDIT_BOOK)
     .switchMap((action) => {
-      return apis.addEditItem('books', action.newBook)
-        // handle successes
+      return apis.addItem('books', action.newBook)
+
         .map((res) =>
           actions.AddEditSuccessBook(res.body)
         )
@@ -141,15 +139,51 @@ export function addEditBook(action$) {
     })
 }
 
-export function addEditCategory(action$) {
+export function addCategory(action$) {
+
+  return action$
+    .ofType(actionTypes.ADD_CATEGORY)
+    .switchMap((action) => {
+      return apis.addItem('category', action.item)
+
+        .map((res) =>
+          actions.AddEditSuccessCategory(res.body)
+        )
+      // .catch((err) => Rx
+      //   .Observable
+      //   .of(appActions.throwError(err)
+      //   )
+      // )
+    })
+}
+
+export function editCategory(action$) {
 
   return action$
     .ofType(actionTypes.ADDEDIT_CATEGORY)
     .switchMap((action) => {
       return apis.editItem('categories', action.item)
-        // handle successes
+
         .map((res) =>
           actions.AddEditSuccessCategory(res.body)
+        )
+      // .catch((err) => Rx
+      //   .Observable
+      //   .of(appActions.throwError(err)
+      //   )
+      // )
+    })
+}
+
+export function editAuthor(action$) {
+
+  return action$
+    .ofType(actionTypes.ADDEDIT_AUTHOR)
+    .switchMap((action) => {
+      return apis.editItem('authors', action.item)
+
+        .map((res) =>
+          actions.AddEditSuccessAuthor(res.body)
         )
       // .catch((err) => Rx
       //   .Observable

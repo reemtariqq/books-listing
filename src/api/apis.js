@@ -5,7 +5,7 @@ import request from 'superagent'
 export default {
   fetchList,
   fetchItem,
-  addEditItem,
+  addItem,
   editItem
 }
 
@@ -41,7 +41,7 @@ function fetchItem(itemName, id) {
   )
 }
 
-function addEditItem(itemName, item) {
+function addItem(itemName, item) {
   return from(
     request
       .post(`http://localhost:4000/${itemName}`)

@@ -9,7 +9,9 @@ function AddEditCategory({ location: { state: details } }) {
     const [title, setTitle] = React.useState('')
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(actions.AddEditCategory({ id: details.id, name: title }))
+        const newCategory ={name: title}
+        if(details && details.id) newCategory.id = details.id
+        dispatch(actions.AddEditCategory(newCategory))
         history.push('/')
     }
 

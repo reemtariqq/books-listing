@@ -28,7 +28,8 @@ function BookList(props) {
     return dispatch(actions.setItemDetailsBook(itemDetails))
   }
 
-  const fetchBookList = query => {
+  const fetchBookList = () => {
+
     dispatch(actions.fetchListBook(query))
   }
 
