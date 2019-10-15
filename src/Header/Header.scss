@@ -27,9 +27,10 @@ background-color: $primary-color;
  &_text{
     text-decoration: none;
     color: white;
+    font-weight:bold;
     font-size: large;
     padding: 13px;
-     
+    line-height: 40px;
  }
  .link{
     @extend %header-button;
