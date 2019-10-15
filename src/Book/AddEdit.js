@@ -81,7 +81,7 @@ function AddEditBook({ location: { state: details } }) {
             <span> Pages count </span> <input defaultValue={formState.pagesNumber} onBlur={(event) => handleFormState('pagesNo', event.target.value)} />
 
             <span> Year Published </span> <input defaultValue={formState.publishYear} onBlur={(event) => handleFormState('year', event.target.value)} />
-            <span> Image URL </span> <input defaultValue={formState.image} onBlur={(event) => handleFormState('imageURL', event.target.value)} />
+            <span> Image URL </span> <input defaultValue={formState.imageURL} onBlur={(event) => handleFormState('imageURL', event.target.value)} />
             <div>
                 <input type="submit" value="submit" />
                 <button> Cancel</button>
