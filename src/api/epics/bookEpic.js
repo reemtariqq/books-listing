@@ -12,11 +12,9 @@ import * as actions from '../../actions/actions'
 
 export default [
   fetchListBooks,
-
   fetchBook,
-
   addBook,
-
+  editBook,
 ]
 
 
@@ -76,7 +74,8 @@ export function editBook(action$) {
   return action$
     .ofType(actionTypes.EDIT_BOOK)
     .switchMap((action) => {
-      return apis.editItem('books', action.newBook)
+      debugger
+      return apis.editItem('books', action.item)
 
         .map((res) =>
           actions.EditSuccessBook(res.body)

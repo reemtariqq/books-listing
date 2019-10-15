@@ -7,14 +7,15 @@ import './AddEdit.scss'
 function AddEditBook({ location: { state: details } }) {
 
     const initialState = {
-        title: details ?.title,
-        author: details ?.author,
-        category: '',
-        description: '',
-        isbn: '',
-        pagesNo: '',
-        year: '',
-        imageURL: '',
+        id: details ? details.id : '',
+        title: details ? details.title : '',
+        author: details ? details.author : '',
+        category: details ? details.category : '',
+        description: details ? details.description : '',
+        isbn: details ? details.isbn : '',
+        pagesNumber: details ? details.pagesNumber : '',
+        publishYear: details ? details.publishYear : '',
+        imageURL: details ? details.imageURL : '',
     }
     const [formState, setFormState] = React.useState(initialState)
 
