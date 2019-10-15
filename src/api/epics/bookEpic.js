@@ -47,22 +47,8 @@ export function fetchBook(action$) {
           actions.fetchSuccessBook(res.body),
           actions.fetchCategory({ id: res.body.category })
         ))
-      // .map((res) => {
-      //   actions.fetchSuccessBook(res.body)
-      //   actions.fetchCategory(res.body.category).map((res) => {
-      //     action.fetchSuccessCategory(res)
-      //   })
-      // })
-      // .catch((err) => Rx
-      //   .Observable
-      //   .of(appActions.throwError(err)
-      //   )
-      // )
     })
 }
-
-
-
 
 
 export function addBook(action$) {
@@ -84,3 +70,21 @@ export function addBook(action$) {
 }
 
 
+
+export function editBook(action$) {
+
+  return action$
+    .ofType(actionTypes.EDIT_BOOK)
+    .switchMap((action) => {
+      return apis.editItem('books', action.newBook)
+
+        .map((res) =>
+          actions.EditSuccessBook(res.body)
+        )
+      // .catch((err) => Rx
+      //   .Observable
+      //   .of(appActions.throwError(err)
+      //   )
+      // )
+    })
+}

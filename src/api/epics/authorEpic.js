@@ -19,7 +19,7 @@ export function fetchListAuthors(action$) {
 
   return action$
     .ofType(actionTypes.FETCH_LIST_AUTHOR)
-    .switchMap((action) => {
+    .switchMap(() => {
       return apis.fetchList('authors')
 
         .map((res) => actions.fetchListSuccessAuthors(res))

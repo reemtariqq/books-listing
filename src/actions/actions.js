@@ -22,7 +22,6 @@ export function fetchListErrorBook(err) {
     }
 }
 
-
 export function fetchListCategories() {
     return {
         type: ActionTypes.FETCH_LIST_CATEGORY,
@@ -131,7 +130,6 @@ export function fetchErrorCategory(err) {
     }
 }
 
-
 export function fetchAuthor(query) {
     return {
         type: ActionTypes.FETCH_AUTHOR,
@@ -195,7 +193,6 @@ export function AddErrorAuthor(err) {
     }
 }
 
-
 export function AddCategory(item) {
     return {
         type: ActionTypes.ADD_CATEGORY,
@@ -216,6 +213,29 @@ export function AddErrorCategory(err) {
         err,
     }
 }
+
+
+export function EditBook(item) {
+    return {
+        type: ActionTypes.EDIT_BOOK,
+        item
+    }
+}
+
+export function EditSuccessBook(item) {
+    return {
+        type: ActionTypes.EDIT_SUCCESS_BOOK,
+        item
+    }
+}
+
+export function EditErrorBook(err) {
+    return {
+        type: ActionTypes.EDIT_ERROR_BOOK,
+        err,
+    }
+}
+
 
 export function EditCategory(item) {
     return {

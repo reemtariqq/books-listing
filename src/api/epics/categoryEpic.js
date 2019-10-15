@@ -18,7 +18,7 @@ export function fetchListCategories(action$) {
 
   return action$
     .ofType(actionTypes.FETCH_LIST_CATEGORY)
-    .switchMap((action) => {
+    .switchMap(() => {
       return apis.fetchList('categories')
 
         .map((res) => actions.fetchListSuccessCategories(res))

@@ -7,8 +7,8 @@ import './AddEdit.scss'
 function AddEditBook({ location: { state: details } }) {
 
     const initialState = {
-        title: '',
-        author: '',
+        title: details ?.title,
+        author: details ?.author,
         category: '',
         description: '',
         isbn: '',
@@ -24,7 +24,7 @@ function AddEditBook({ location: { state: details } }) {
     let categoriesList = useSelector(store => store.Category.list)
 
     if (details && authorsList && categoriesList) {
-        debugger
+
         authorsList = authorsList.map(author => {
             if (author.id === details.author) {
                 return (
@@ -80,27 +80,27 @@ function AddEditBook({ location: { state: details } }) {
         })
     }
 
-    const validateInput = input => {
-
-    }
-
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(actions.AddBook(formState))
+        if (details) {
+            dispatch(actions.EditBook(formState))
+        }
+        else { dispatch(actions.AddBook(formState)) }
+
         history.push('/')
     }
 
 
     return (
         <form style={{ display: 'flex', flexDirection: 'column' }} onSubmit={handleSubmit}>
-            <span> Title </span> <input defaultValue={details.title} onChange={validateInput} onBlur={(event) => handleFormState('title', event.target.value)} />
+            <span> Title </span> <input defaultValue={details.title} onBlur={(event) => handleFormState('title', event.target.value)} />
             <div className="form_select">
                 <span> Author</span>
                 <select onChange={(event) => handleFormState('author', event.target.value)}>
                     {
 
                         authorsList && authorsList.map(author => {
-                            debugger
+
                             return (<option selected={author.selected} key={author.info.id}>{author.info.name}</option>)
                         })
                     }
