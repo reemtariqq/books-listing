@@ -30,6 +30,10 @@ function genericReducer(state = {}, action) {
     case actionTypes.ADD_SUCCESS_BOOK:
     case actionTypes.ADD_SUCCESS_AUTHOR:
     case actionTypes.ADD_SUCCESS_CATEGORY:
+
+    case actionTypes.EDIT_SUCCESS_BOOK:
+    case actionTypes.EDIT_SUCCESS_AUTHOR:
+    case actionTypes.EDIT_SUCCESS_CATEGORY:
       return addEditItemSuccess(state, action)
 
     default:

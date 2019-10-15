@@ -5,9 +5,9 @@ import { createEpicMiddleware } from 'redux-observable'
 // import thunk from 'redux-thunk'
 
 import rootReducer from './reducers'
-import rootEpic from './epics'
+import rootEpic from '../api/epics'
 
-const epicMiddleware = createEpicMiddleware() 
+const epicMiddleware = createEpicMiddleware()
 
 
 function configureStoreProd(initialState) {

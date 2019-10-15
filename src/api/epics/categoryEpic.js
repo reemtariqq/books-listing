@@ -6,23 +6,22 @@ import actionTypes from '../../actions/actionsTypes'
 import * as actions from '../../actions/actions'
 
 export default [
-  fetchListBooks,
-
-  fetchBook,
-
-  addBook,
+  fetchListCategories,
+  fetchCategory,
+  addCategory,
+  editCategory,
 
 ]
 
 
-export function fetchListBooks(action$) {
+export function fetchListCategories(action$) {
 
   return action$
-    .ofType(actionTypes.FETCH_LIST_BOOK)
+    .ofType(actionTypes.FETCH_LIST_CATEGORY)
     .switchMap((action) => {
-      return apis.fetchList('books', action.query)
+      return apis.fetchList('categories')
 
-        .map((res) => actions.fetchListSuccessBook(res))
+        .map((res) => actions.fetchListSuccessCategories(res))
       // .catch((err) => Rx
       //   .Observable
       //   .of(appActions.throwError(err)
@@ -32,21 +31,6 @@ export function fetchListBooks(action$) {
 }
 
 
-export function fetchBook(action$) {
-
-  return action$
-    .ofType(actionTypes.FETCH_BOOK)
-    .switchMap((action) => {
-      return apis.fetchList('books', action.query)
-
-        .map((res) => actions.fetchListSuccessBook(res.body))
-      // .catch((err) => Rx
-      //   .Observable
-      //   .of(appActions.throwError(err)
-      //   )
-      // )
-    })
-}
 
 export function fetchCategory(action$) {
 
@@ -65,33 +49,17 @@ export function fetchCategory(action$) {
     })
 }
 
-export function fetchAuthor(action$) {
+
+
+export function addCategory(action$) {
 
   return action$
-    .ofType(actionTypes.FETCH_AUTHOR)
+    .ofType(actionTypes.ADD_CATEGORY)
     .switchMap((action) => {
-      return apis.fetchList('authors', action.query)
-
-        .map((res) => actions.fetchSuccessAuthor(res.body))
-      // .catch((err) => Rx
-      //   .Observable
-      //   .of(appActions.throwError(err)
-      //   )
-      // )
-    })
-}
-
-
-
-export function addBook(action$) {
-
-  return action$
-    .ofType(actionTypes.ADD_BOOK)
-    .switchMap((action) => {
-      return apis.addItem('books', action.newBook)
+      return apis.addItem('categories', action.item)
 
         .map((res) =>
-          actions.AddSuccessBook(res.body)
+          actions.AddSuccessCategory(res.body)
         )
       // .catch((err) => Rx
       //   .Observable
@@ -100,5 +68,24 @@ export function addBook(action$) {
       // )
     })
 }
+
+export function editCategory(action$) {
+
+  return action$
+    .ofType(actionTypes.ADDEDIT_CATEGORY)
+    .switchMap((action) => {
+      return apis.editItem('categories', action.item)
+
+        .map((res) =>
+          actions.EditSuccessCategory(res.body)
+        )
+      // .catch((err) => Rx
+      //   .Observable
+      //   .of(appActions.throwError(err)
+      //   )
+      // )
+    })
+}
+
 
 
