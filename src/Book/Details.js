@@ -9,20 +9,19 @@ function Details({ match: { params: { id } } }) {
     const category = useSelector(store => store.Category.details)
 
     const isEditMode = useSelector(store => store.Config.isEditMode)
-    const editAuthor = () => {
+    const editBook = () => {
         history.push(`/book/${id}/edit`, itemDetails)
     }
 
     if (itemDetails) {
         return (
             <div>
-                <Icon />
+                <Icon />  {isEditMode && <button onClick={editBook}> Edit</button>}
                 <span>{itemDetails.title}</span>
                 <div>
                     <span>by</span>
                     <span>{itemDetails.author}</span>
                 </div>
-
                 <div>
                     <span>Number of Pages</span>
                     <span>{itemDetails.pagesNumber}</span>
@@ -43,9 +42,6 @@ function Details({ match: { params: { id } } }) {
                     <span>{category && category.name}</span>
                 </div>
                 <span>{itemDetails.description}</span>
-
-
-                {isEditMode && <button onClick={editAuthor}> Edit</button>}
 
             </div >
         )
