@@ -18,6 +18,7 @@ function AddEditBook({ location: { state: details } }) {
         imageURL: details ? details.imageURL : '',
     }
     const [formState, setFormState] = React.useState(initialState)
+    const [isValidUrl, setIsValidUrl] = React.useState(true)
 
     const dispatch = useDispatch()
     const history = useHistory()
@@ -28,7 +29,7 @@ function AddEditBook({ location: { state: details } }) {
     React.useEffect(() => {
         if (!categoriesList) dispatch(actions.fetchListCategories())
         if (!authorsList) dispatch(actions.fetchListAuthors())
-    }, [])
+    })
 
 
 
@@ -39,6 +40,20 @@ function AddEditBook({ location: { state: details } }) {
                 [field]: value
             }
         })
+    }
+
+    const isUrl = (value) => {
+        const regexp = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/
+        return regexp.test(value)
+    }
+
+    const setUrl = (url) => {
+        if (isUrl(url)) {
+            handleFormState('imageURL', url)
+        }
+        else {
+            setIsValidUrl(false)
+        }
     }
 
     const handleSubmit = (e) => {
@@ -57,31 +72,31 @@ function AddEditBook({ location: { state: details } }) {
             <span> Title </span> <input defaultValue={formState.title} onBlur={(event) => handleFormState('title', event.target.value)} />
             <div className="form_select">
                 <span> Author</span>
-                <select onChange={(event) => handleFormState('author', event.target.value)}>
+                {authorsList && <select onChange={(event) => handleFormState('author', event.target.value)}>
                     {
 
                         authorsList && authorsList.map(author =>
 
-                            <option selected={details.author === author.id} key={author.id}>{author.name}</option>
+                            <option selected={details && details.author === author.id} key={author.id}>{author.name}</option>
                         )
                     }
 
-                </select>
+                </select>}
 
                 <span> Category</span>
-                <select onChange={(event) => handleFormState('category', event.target.value)}>
+                {categoriesList && <select onChange={(event) => handleFormState('category', event.target.value)}>
                     {
 
-                        categoriesList && categoriesList.map(category => <option selected={details.category === category.id} key={category.id}>{category.name}</option>)
+                        categoriesList && categoriesList.map(category => <option selected={details && details.category === category.id} key={category.id}>{category.name}</option>)
                     }
-                </select>
+                </select>}
             </div>
             <textarea defaultValue={formState.description} rows="20" cols="70" onBlur={(event) => handleFormState('description', event.target.value)} />
             <span> ISBN </span> <input defaultValue={formState.isbn} onBlur={(event) => handleFormState('isbn', event.target.value)} />
             <span> Pages count </span> <input defaultValue={formState.pagesNumber} onBlur={(event) => handleFormState('pagesNo', event.target.value)} />
 
             <span> Year Published </span> <input defaultValue={formState.publishYear} onBlur={(event) => handleFormState('year', event.target.value)} />
-            <span> Image URL </span> <input defaultValue={formState.imageURL} onBlur={(event) => handleFormState('imageURL', event.target.value)} />
+            <span> Image URL </span> <input className={isValidUrl ? '' : 'form_error'} defaultValue={formState.imageURL} onBlur={(event) => setUrl(event.target.value)} />
             <div>
                 <input type="submit" value="submit" />
                 <button> Cancel</button>
